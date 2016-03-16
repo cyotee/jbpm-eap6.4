@@ -22,8 +22,9 @@ RUN unzip /tmp/jboss-eap-6.4.0.zip -d /opt/jboss && \
     echo "JAVA_OPTS=\"\$JAVA_OPTS -Djboss.bind.address=0.0.0.0 -Djboss.bind.address.management=0.0.0.0\"" >> $JBOSS_HOME/bin/standalone.conf && \
     echo "Starting Jboss to apply patch" && \
     nohup $JBOSS_HOME/bin/standalone.sh -c standalone-full-ha.xml > /dev/null && \
-    echo "
+    echo "Applying 6.4.4 patch to EAP" && \
     $JBOSS_HOME/bin/jboss-cli.sh --file=/tmp/patch.batch && \
+    echo "Installing jBPM."
     java -jar jboss-bpmsuite-installer-6.2.0.BZ-1299002.jar self-install-script-bpm-6.2-eap-6.4.4.xml
 
 ### Open Ports
