@@ -8,9 +8,10 @@ USER jboss
 ### Install EAP 6.4.0
 ADD installs/jboss-eap-6.4.4.zip /tmp/jboss-eap-6.4.4.zip
 #ADD installs/jboss-eap-6.4.4-patch.zip /tmp/jboss-eap-6.4.4-patch.zip
-ADD installs/self-install-script-bpm-6.2-eap-6.4.4.xml /tmp/self-install-script-bpm-6.2-eap-6.4.4.xml
-ADD installs/jboss-bpmsuite-installer-6.2.0.BZ-1299002.jar /tmp/jboss-bpmsuite-installer-6.2.0.BZ-1299002.jar
+#ADD installs/self-install-script-bpm-6.2-eap-6.4.4.xml /tmp/self-install-script-bpm-6.2-eap-6.4.4.xml
+#ADD installs/jboss-bpmsuite-installer-6.2.0.BZ-1299002.jar /tmp/jboss-bpmsuite-installer-6.2.0.BZ-1299002.jar
 #ADD installs/patch.batch /tmp/patch.batch
+ADD installs/jboss-bpmsuite-6.2.0.GA-deployable-eap6.x.zip /tmp/jboss-bpmsuite-6.2.0.GA-deployable-eap6.x.zip
 
 ### Set Environment
 ENV JBOSS_HOME /opt/jboss/jboss-eap-6.4.4
@@ -33,7 +34,7 @@ RUN unzip /tmp/jboss-eap-6.4.4.zip -d /opt/jboss && \
     echo "Setting bind address in $JBOSS_HOME/bin/standalone.conf" && \
     echo "JAVA_OPTS=\"\$JAVA_OPTS -Djboss.bind.address=0.0.0.0 -Djboss.bind.address.management=0.0.0.0\"" >> $JBOSS_HOME/bin/standalone.conf && \
     echo "Installing jBPM." && \
-    java -jar /tmp/jboss-bpmsuite-installer-6.2.0.BZ-1299002.jar /tmp/self-install-script-bpm-6.2-eap-6.4.4.xml
+    unzip -u tmp/jboss-bpmsuite-6.2.0.GA-deployable-eap6.x.zip -d $JBOSS_HOME
 
 ### Open Ports
 EXPOSE 8080 9990 9999
