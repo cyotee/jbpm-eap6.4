@@ -33,8 +33,8 @@ ENV JBOSS_HOME /opt/jboss/jboss-eap-6.4
 #    echo "Installing jBPM." && \
 #    java -jar jboss-bpmsuite-installer-6.2.0.BZ-1299002.jar self-install-script-bpm-6.2-eap-6.4.4.xml
 
-RUN unzip /tmp/jboss-eap-6.4.zip -d /opt/jboss && \
-    mv -v /opt/jboss/jboss-eap-6.4.4 /opt/jboss/jboss-eap-6.4 && \
+RUN unzip -u /tmp/jboss-eap-6.4.zip -d /opt/jboss && \
+    mv -vf /opt/jboss/jboss-eap-6.4.4 /opt/jboss/jboss-eap-6.4 && \
     echo "Adding admin user." && \
     $JBOSS_HOME/bin/add-user.sh admin jb0ssr@cks --silent && \
     echo "Setting bind address in $JBOSS_HOME/bin/standalone.conf" && \
