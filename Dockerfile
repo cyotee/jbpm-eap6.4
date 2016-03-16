@@ -3,6 +3,11 @@ FROM jboss/base-jdk:7
 ### File Author / Maintainer
 MAINTAINER "Robert Greathouse" "robert@opensourcearchitect.co"
 
+USER root
+
+RUN mkdir -p /Users/robertgreathouse/Downloads/jboss-eap-6.4/standalone/log && \
+    chown -R jboss:jboss /Users/robertgreathouse/Downloads/jboss-eap-6.4/standalone/log
+
 USER jboss
 
 ### Install EAP 6.4.0
@@ -35,13 +40,6 @@ RUN unzip /tmp/jboss-eap-6.4.4.zip -d /opt/jboss && \
     echo "JAVA_OPTS=\"\$JAVA_OPTS -Djboss.bind.address=0.0.0.0 -Djboss.bind.address.management=0.0.0.0\"" >> $JBOSS_HOME/bin/standalone.conf && \
     echo "Installing jBPM." && \
     unzip -u /tmp/jboss-bpmsuite-6.2.0.GA-deployable-eap6.x.zip -d $JBOSS_HOME
-
-USER root
-
-RUN mkdir -p /Users/robertgreathouse/Downloads/jboss-eap-6.4/standalone/log && \
-    chown -R jboss:jboss /Users/robertgreathouse/Downloads/jboss-eap-6.4/standalone/log
-
-USER jboss
 
 ### Open Ports
 EXPOSE 8080 9990 9999
