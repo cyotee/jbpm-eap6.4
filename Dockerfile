@@ -21,7 +21,7 @@ RUN unzip /tmp/jboss-eap-6.4.0.zip -d /opt/jboss && \
     echo "Setting bind address in $JBOSS_HOME/bin/standalone.conf" && \
     echo "JAVA_OPTS=\"\$JAVA_OPTS -Djboss.bind.address=0.0.0.0 -Djboss.bind.address.management=0.0.0.0\"" >> $JBOSS_HOME/bin/standalone.conf && \
     echo "Starting Jboss to apply patch" && \
-    $JBOSS_HOME/bin/standalone.sh > /dev/null && \
+    $JBOSS_HOME/bin/standalone.sh && \
     echo "Applying 6.4.4 patch to EAP" && \
     $JBOSS_HOME/bin/jboss-cli.sh --file=/tmp/patch.batch && \
     echo "Installing jBPM."
