@@ -6,10 +6,10 @@ MAINTAINER "Robert Greathouse" "robert@opensourcearchitect.co"
 USER jboss
 
 ### Install EAP 6.4.0
-ADD installs/jboss-eap-6.4.0.zip /tmp
-ADD installs/jboss-eap-6.4.4-patch.zip /tmp
-ADD installs/self-install-script-bpm-6.2-eap-6.4.4.xml /tmp
-ADD installs/jboss-bpmsuite-installer-6.2.0.BZ-1299002.jar /tmp
+ADD installs/jboss-eap-6.4.0.zip /tmp/jboss-eap-6.4.0.zip
+ADD installs/jboss-eap-6.4.4-patch.zip /tmp/jboss-eap-6.4.4-patch.zip
+ADD installs/self-install-script-bpm-6.2-eap-6.4.4.xml /tmp/self-install-script-bpm-6.2-eap-6.4.4.xml
+ADD installs/jboss-bpmsuite-installer-6.2.0.BZ-1299002.jar /tmp/jboss-bpmsuite-installer-6.2.0.BZ-1299002.jar
 
 ### Set Environment
 ENV JBOSS_HOME /opt/jboss/jboss-eap-6.4
