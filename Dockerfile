@@ -13,11 +13,9 @@ ADD installs/jboss-bpmsuite-installer-6.2.0.BZ-1299002.jar /tmp/jboss-bpmsuite-i
 
 ### Set Environment
 ENV JBOSS_HOME /opt/jboss/jboss-eap-6.4
-### Create EAP User
-RUN $JBOSS_HOME/bin/add-user.sh admin admin123! --silent
 
 RUN unzip /tmp/jboss-eap-6.4.0.zip && \
-    ### Configure EAP
+    $JBOSS_HOME/bin/add-user.sh admin 0p3ns0urc3 --silent && \
     RUN echo "JAVA_OPTS=\"\$JAVA_OPTS -Djboss.bind.address=0.0.0.0 -Djboss.bind.address.management=0.0.0.0\"" >> $JBOSS_HOME/bin/standalone.conf && \
     nohup $JBOSS_HOME/bin/standalone.sh -c standalone-full-ha.xml > /dev/null && \
     /opt/jboss/jboss-eap-6.4/jboss-cli.sh --file=/tmp/self-install-script-bpm-6.2-eap-6.4.4.xml && \
