@@ -39,4 +39,4 @@ RUN unzip /tmp/jboss-eap-6.4.4.zip -d /opt/jboss && \
 EXPOSE 8080 9990 9999
 
 ### Start EAP
-CMD $JBOSS_HOME/bin/standalone.sh -c standalone-full-ha.xml
+CMD $JBOSS_HOME/bin/standalone.sh
