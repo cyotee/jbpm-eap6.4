@@ -13,7 +13,7 @@ ADD installs/jboss-bpmsuite-installer-6.2.0.BZ-1299002.jar /tmp/jboss-bpmsuite-i
 #ADD installs/patch.batch /tmp/patch.batch
 
 ### Set Environment
-ENV JBOSS_HOME /opt/jboss/jboss-eap-6.4
+ENV JBOSS_HOME /opt/jboss/jboss-eap-6.4.4
 
 #RUN unzip /tmp/jboss-eap-6.4.4.zip -d /opt/jboss && \
 #    echo "Adding admin user." && \
