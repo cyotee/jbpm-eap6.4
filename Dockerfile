@@ -35,7 +35,7 @@ ENV JBOSS_HOME /opt/jboss/jboss-eap-6.4
 #    java -jar jboss-bpmsuite-installer-6.2.0.BZ-1299002.jar self-install-script-bpm-6.2-eap-6.4.4.xml
 
 RUN unzip -uo /tmp/jboss-eap-6.4.4.zip -d /opt/jboss && \
-#    mv -vf /opt/jboss/jboss-eap-6.4.4 /opt/jboss/jboss-eap-6.4 && \
+    mv -vf /opt/jboss/jboss-eap-6.4.4 /opt/jboss/jboss-eap-6.4 && \
     echo "Adding JBoss admin user." && \
     $JBOSS_HOME/bin/add-user.sh admin jb0ssr@cks --silent && \
     echo "Adding JBPM admin user." && \
