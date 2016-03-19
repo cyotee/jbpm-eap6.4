@@ -35,7 +35,7 @@ ENV JBOSS_HOME /opt/jboss/jboss-eap-6.4
 #    java -jar jboss-bpmsuite-installer-6.2.0.BZ-1299002.jar self-install-script-bpm-6.2-eap-6.4.4.xml
 
 RUN unzip -uo /tmp/jboss-eap-6.4.4.zip -d /opt/jboss && \
-    rm -f /tmp/jboss-eap-6.4.4.zip && \
+#    rm -f /tmp/jboss-eap-6.4.4.zip && \
     mv -vf /opt/jboss/jboss-eap-6.4.4 /opt/jboss/jboss-eap-6.4 && \
     echo "Adding JBoss admin user." && \
     $JBOSS_HOME/bin/add-user.sh admin jb0ssr@cks --silent && \
@@ -45,10 +45,10 @@ RUN unzip -uo /tmp/jboss-eap-6.4.4.zip -d /opt/jboss && \
     echo "JAVA_OPTS=\"\$JAVA_OPTS -Djboss.bind.address=0.0.0.0 -Djboss.bind.address.management=0.0.0.0\"" >> $JBOSS_HOME/bin/standalone.conf && \
     echo "Installing jBPM." && \
     unzip -uo /tmp/jboss-bpmsuite-6.2.0.GA-deployable-eap6.x.zip -d /opt/jboss && \
-    rm -f /tmp/jboss-bpmsuite-6.2.0.GA-deployable-eap6.x.zip && \
+#    rm -f /tmp/jboss-bpmsuite-6.2.0.GA-deployable-eap6.x.zip && \
     echo "Applying JBPM critical patch for missing files." && \
     unzip -uo /tmp/repositories.zip -d /opt/jboss/ && \
-    rm -f /tmp/repositories.zip
+#    rm -f /tmp/repositories.zip
 
 ### Open Ports
 EXPOSE 8080 9990 9999
