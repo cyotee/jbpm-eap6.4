@@ -39,7 +39,7 @@ RUN unzip -uo /tmp/jboss-eap-6.4.4.zip -d /opt/jboss && \
     echo "Adding JBoss admin user." && \
     $JBOSS_HOME/bin/add-user.sh admin jb0ssr@cks --silent && \
     echo "Adding JBPM admin user." && \
-    $JBOSS_HOME/bin/add-user.sh -a jbpm-admin jb0ssr@cks --silent && \
+    $JBOSS_HOME/bin/add-user.sh -a jbpmadmin jb0ssr@cks --silent && \
     echo "Setting bind address in $JBOSS_HOME/bin/standalone.conf" && \
     echo "JAVA_OPTS=\"\$JAVA_OPTS -Djboss.bind.address=0.0.0.0 -Djboss.bind.address.management=0.0.0.0\"" >> $JBOSS_HOME/bin/standalone.conf && \
     echo "Installing jBPM." && \
