@@ -47,7 +47,7 @@ RUN unzip -uo /tmp/jboss-eap-6.4.4.zip -d /opt/jboss && \
     unzip -uo /tmp/jboss-bpmsuite-6.2.0.GA-deployable-eap6.x.zip -d /opt/jboss && \
 #    rm -f /tmp/jboss-bpmsuite-6.2.0.GA-deployable-eap6.x.zip && \
     echo "Applying JBPM critical patch for missing files." && \
-    unzip -uo /tmp/repositories.zip -d /opt/jboss/ && \
+    unzip -uo /tmp/repositories.zip -d /opt/jboss/
 #    rm -f /tmp/repositories.zip
 
 ### Open Ports
